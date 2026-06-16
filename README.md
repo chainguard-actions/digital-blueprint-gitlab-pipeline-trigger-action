@@ -1,1 +1,16 @@
-# digital-blueprint-gitlab-pipeline-trigger-action
+# digital-blueprint/gitlab-pipeline-trigger-action
+
+Triggers and waits for a GitLab pipeline to complete
+
+Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at [https://github.com/digital-blueprint/gitlab-pipeline-trigger-action](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action).
+
+## Versions
+
+| Version | Tag | Upstream commit |
+|---------|-----|-----------------|
+| v1.2.1 | [`v1.2.1`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.2.1) | [`8354065`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/8354065102d245c03c99ba91b295169522e14246) |
+| v1.4.0 | [`v1.4.0`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.4.0) | [`c59b56e`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/c59b56e9d2688ab42c1304322ac8831a4ef6f7d2) |
+
+## Privacy
+
+This Action contacts Chainguard's licensing server to verify authorization. Connection metadata (IP address, GitHub repository identifier, timestamp, and any metadata encoded in the auth token) is transmitted to Chainguard, Inc. even if authorization is denied in accordance with our [Privacy Notice](https://www.chainguard.dev/legal/privacy-notice)
