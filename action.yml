@@ -1,0 +1,39 @@
+name: 'GitLab Pipeline Trigger'
+description: 'Triggers and waits for a GitLab pipeline to complete'
+author: 'Patrizio Bekerle <patrizio@bekerle.com>'
+branding:
+  icon: 'git-commit'
+  color: 'orange'
+inputs:
+  host:
+    description: 'The GitLab host to trigger the pipeline.'
+    required: false
+    default: 'gitlab.com'
+  id:
+    description: 'The ID or URL-encoded path of the project owned by the authenticated user.'
+    required: true
+    default: ''
+  ref:
+    description: 'The branch or tag to run the pipeline on.'
+    required: true
+    default: ''
+  trigger_token:
+    description: 'Pipeline Trigger Token, see https://docs.gitlab.com/ee/ci/triggers/index.html#create-a-trigger-token'
+    required: true
+    default: ''
+  access_token:
+    description: 'Pipeline Access Token, see https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html'
+    required: false
+    default: ''
+  variables:
+    description: 'A map of key-valued strings containing the pipeline variables. For example: { VAR1: "value1", VAR2: "value2" }.'
+    required: false
+outputs:
+  status:
+    description: 'The status of the pipeline.'
+  web_url:
+    description: 'The URL of the pipeline.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+  pre: chainguard-phonehome.js
