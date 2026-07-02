@@ -13,6 +13,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | v1.2.1 | [`v1.2.1`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.2.1) | [`8354065`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/8354065102d245c03c99ba91b295169522e14246) |
 | v1.3.0 | [`v1.3.0`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.3.0) | [`20e7798`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/20e77989b24af658ba138a0aa5291bdc657f1505) |
 | v1.4.0 | [`v1.4.0`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.4.0) | [`c59b56e`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/c59b56e9d2688ab42c1304322ac8831a4ef6f7d2) |
+| v1.4.1 | [`v1.4.1`](https://github.com/chainguard-actions/digital-blueprint-gitlab-pipeline-trigger-action/tree/v1.4.1) | [`9ca002c`](https://github.com/digital-blueprint/gitlab-pipeline-trigger-action/commit/9ca002ca6a5ef490630caf6cc7ac0f8e8e60a04e) |
 
 ## Privacy
 
