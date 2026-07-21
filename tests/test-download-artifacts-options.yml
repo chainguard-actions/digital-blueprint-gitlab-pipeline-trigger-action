@@ -1,0 +1,39 @@
+name: Test download artifacts options
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Run action with download artifacts options
+        id: action
+        uses: .
+        continue-on-error: true
+        with:
+          host: gitlab.com
+          id: "99999999"
+          ref: "main"
+          trigger_token: "fake-trigger-token"
+          access_token: "fake-access-token"
+          download_artifacts: "true"
+          download_artifacts_on_failure: "true"
+          download_job_logs: "true"
+          fail_if_no_artifacts: "false"
+          download_path: "./test-downloads"
+          verbose: "true"
+
+      - name: Assert action failed gracefully with download options set
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+          ARTIFACTS_DOWNLOADED: ${{ steps.action.outputs.artifacts_downloaded }}
+        run: |
+          echo "outcome: $OUTCOME"
+          echo "artifacts_downloaded: $ARTIFACTS_DOWNLOADED"
+          # With invalid credentials the action must fail
+          if [ "$OUTCOME" = "success" ]; then
+            echo "FAIL: expected action to fail with invalid credentials"
+            exit 1
+          fi
+          echo "PASS: action failed as expected with download options configured"
