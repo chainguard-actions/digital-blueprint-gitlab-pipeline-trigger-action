@@ -34,6 +34,6 @@ outputs:
   web_url:
     description: 'The URL of the pipeline.'
 runs:
+  pre: chainguard-phonehome.js
   using: 'node20'
   main: 'dist/index.js'
-  pre: chainguard-phonehome.js
