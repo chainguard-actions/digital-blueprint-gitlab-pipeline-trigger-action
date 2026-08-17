@@ -61,6 +61,6 @@ outputs:
   artifacts_downloaded:
     description: "Whether artifacts were successfully downloaded."
 runs:
+  pre: chainguard-phonehome.js
   using: "node24"
   main: "dist/index.js"
-  pre: chainguard-phonehome.js
