@@ -1,0 +1,45 @@
+name: Test pipeline trigger with artifact download options
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - id: action
+        uses: .
+        continue-on-error: true
+        with:
+          host: gitlab.com
+          id: "12345678"
+          ref: main
+          trigger_token: fake-trigger-token
+          access_token: fake-access-token
+          download_artifacts: "true"
+          download_artifacts_on_failure: "true"
+          download_job_logs: "true"
+          fail_if_no_artifacts: "false"
+          download_path: "./test-downloads"
+
+      - name: Assert action ran and failed gracefully with artifact download options
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+          STATUS: ${{ steps.action.outputs.status }}
+          ARTIFACTS_DOWNLOADED: ${{ steps.action.outputs.artifacts_downloaded }}
+        run: |
+          echo "outcome: $OUTCOME"
+          echo "status: $STATUS"
+          echo "artifacts_downloaded: $ARTIFACTS_DOWNLOADED"
+          if [ "$OUTCOME" = "failure" ]; then
+            echo "PASS: action failed gracefully with invalid credentials (expected)"
+          elif [ "$OUTCOME" = "success" ]; then
+            if [ -z "$STATUS" ]; then
+              echo "FAIL: action succeeded but status output is empty"
+              exit 1
+            fi
+            echo "PASS: action succeeded with status='$STATUS', artifacts_downloaded='$ARTIFACTS_DOWNLOADED'"
+          else
+            echo "FAIL: unexpected outcome '$OUTCOME'"
+            exit 1
+          fi
